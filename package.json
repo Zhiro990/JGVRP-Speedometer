@@ -1,0 +1,19 @@
+{
+	"name": "jgvrp-speedometer",
+	"version": "1.0.0",
+	"scripts": {
+		"build:css": "npx tailwindcss -i ./public/style.raw.css -o ./public/style.css",
+		"build:preview:css": "npx tailwindcss -i ./public/style.preview.raw.css -o ./public/style.preview.css",
+		"dev": "concurrently \"npm:build:css -- --watch\" \"http-server public\"",
+		"dev:preview": "concurrently \"npm:build:preview:css -- --watch\" \"http-server public\"",
+		"lint": "npx prettier --check \"{*,public/**/*}.{js,json,html,css}\"",
+		"format": "npx prettier --write \"{*,public/**/*}.{js,json,html,css}\""
+	},
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.1.11",
+		"concurrently": "^9.2.0",
+		"http-server": "^14.1.1",
+		"prettier": "^3.6.2",
+		"tailwindcss": "^4.1.11"
+	}
+}

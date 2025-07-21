@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@source "./index.html";
+
+#main-part {
+	#line-positioner {
+		@apply h-[90px] w-[2px] bg-transparent origin-bottom -translate-x-1/2 -translate-y-full top-0 left-1/2 absolute;
+	}
+
+	#line-positioner:nth-child(odd) > #line {
+		@apply w-[4px];
+	}
+
+	#line-positioner:nth-child(n + 13) > #line {
+		@apply bg-red-500;
+	}
+
+	#line {
+		@apply h-[11px] w-[2px] bg-white -translate-x-1/2 top-0 left-1/2 absolute;
+	}
+
+	#number-positioner {
+		@apply h-[81px] w-[2px] bg-transparent origin-bottom -translate-x-1/2 -translate-y-full top-0 left-1/2 absolute;
+	}
+
+	#number-positioner:nth-child(n + 7) > #number {
+		@apply text-red-500;
+	}
+
+	#number {
+		@apply font-bold text-[20px] text-white -translate-x-1/2 top-0 left-1/2 absolute;
+	}
+}
+
+#left-part {
+	#line-positioner {
+		@apply h-[44.5px] w-[2px] bg-transparent origin-bottom -translate-x-1/2 -translate-y-full top-0 left-1/2 absolute;
+	}
+
+	#line-positioner:nth-child(odd) > #line {
+		@apply w-[4px];
+	}
+
+	#line-positioner:first-child > #line {
+		@apply bg-red-500;
+	}
+
+	#line {
+		@apply h-[11px] w-[2px] bg-white -translate-x-1/2 top-0 left-1/2 absolute;
+	}
+}
