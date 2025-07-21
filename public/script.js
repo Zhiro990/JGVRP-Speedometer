@@ -5,10 +5,10 @@ let latest = {
 	speed: null,
 	rpm: null,
 	fuel: null,
-	turn_left: null,
-	turn_right: null,
-	lights: null,
-	seatbelt: null,
+	left: null,
+	right: null,
+	headlights: null,
+	seatbelts: null,
 	health: null
 };
 
@@ -28,20 +28,20 @@ function setEngine(state) {
 		if (latest.speed != null) setSpeed(latest.speed);
 		if (latest.rpm != null) setRPM(latest.rpm);
 		if (latest.fuel != null) setFuel(latest.fuel);
-		if (latest.turn_left != null) setTurnLeft(latest.turn_left);
-		if (latest.turn_right != null) setTurnRight(latest.turn_right);
-		if (latest.lights != null) setLights(latest.lights);
-		if (latest.seatbelt != null) setSeatbelt(latest.seatbelt);
+		if (latest.left != null) setLeftIndicator(latest.left);
+		if (latest.right != null) setRightIndicator(latest.right);
+		if (latest.headlights != null) setHeadlights(latest.headlights);
+		if (latest.seatbelts != null) setSeatbelts(latest.seatbelts);
 		if (latest.health != null) setHealth(latest.health);
 	} else {
 		setGear(null);
 		setSpeed(null);
 		setRPM(null);
 		setFuel(null);
-		setTurnLeft(null);
-		setTurnRight(null);
-		setLights(null);
-		setSeatbelt(null);
+		setLeftIndicator(null);
+		setRightIndicator(null);
+		setHeadlights(null);
+		setSeatbelts(null);
 		setHealth(null);
 	}
 }
@@ -55,7 +55,9 @@ function setGear(gear) {
 function setSpeed(speed) {
 	if (speed != null) latest.speed = speed;
 
-	_getElm("#speed-value").textContent = engine_status ? speed : "-";
+	_getElm("#speed-value").textContent = engine_status
+		? Math.round(speed * 3.6)
+		: "-";
 }
 
 function setRPM(rpm) {
@@ -81,33 +83,38 @@ function setFuel(fuel) {
 	);
 }
 
-function setTurnLeft(state) {
-	if (state != null) latest.turn_left = state;
+function setLeftIndicator(state) {
+	if (state != null) latest.left = state;
 
-	_getElm("#turn-left-indicator").src = _getPic(
-		"turn-left",
+	_getElm("#left-indicator").src = _getPic(
+		"left",
 		engine_status && state ? "on" : "off"
 	);
+
+	if (state) {
+		setRightIndicator(false);
+		latest.right = false;
+	}
 }
 
-function setTurnRight(state) {
-	if (state != null) latest.turn_right = state;
+function setRightIndicator(state) {
+	if (state != null) latest.right = state;
 
-	_getElm("#turn-right-indicator").src = _getPic(
-		"turn-right",
+	_getElm("#right-indicator").src = _getPic(
+		"right",
 		engine_status && state ? "on" : "off"
 	);
+
+	if (state) {
+		setLeftIndicator(false);
+		latest.left = false;
+	}
 }
 
-function setLights(state) {
-	if (state != null) latest.lights = state;
+function setHeadlights(state) {
+	if (state != null) latest.headlights = state;
 
 	switch (state) {
-		case 0:
-			state = "off";
-
-			break;
-
 		case 1:
 			state = "on";
 
@@ -117,19 +124,24 @@ function setLights(state) {
 			state = "high";
 
 			break;
+
+		default:
+			state = "off";
+
+			break;
 	}
 
-	_getElm("#lights-indicator").src = _getPic(
-		"lights",
+	_getElm("#headlights-indicator").src = _getPic(
+		"headlights",
 		engine_status ? state : "off"
 	);
 }
 
-function setSeatbelt(state) {
-	if (state != null) latest.seatbelt = state;
+function setSeatbelts(state) {
+	if (state != null) latest.seatbelts = state;
 
-	_getElm("#seatbelt-indicator").src = _getPic(
-		"seatbelt",
+	_getElm("#seatbelts-indicator").src = _getPic(
+		"seatbelts",
 		engine_status ? (state ? "attached" : "detached") : "off"
 	);
 }
@@ -138,8 +150,10 @@ function setHealth(health) {
 	if (health != null) latest.health = health;
 
 	_getElm("#health-percentage").textContent = engine_status
-		? health * 100 + "%"
+		? Math.ceil(health * 100) + "%"
 		: "-";
 
-	_getElm("#health-color").style.transform = `translateY(-${health * 100}%)`;
+	_getElm("#health-color").style.transform = engine_status
+		? `translateY(-${health * 100}%)`
+		: "";
 }

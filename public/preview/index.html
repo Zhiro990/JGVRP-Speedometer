@@ -1,380 +1,481 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>JGVRP Speedometer</title>
 
-	<title>JGVRP Speedometer</title>
+		<link rel="stylesheet" href="/preview/style.css" />
+	</head>
 
-	<link rel="stylesheet" href="/preview/style.css" />
-</head>
+	<body class="bg-white overflow-hidden">
+		<div
+			id="speedometer"
+			class="size-fit flex gap-[6px] right-[15px] bottom-[15px] absolute select-none"
+		>
+			<div
+				id="main-part"
+				class="size-[200px] bg-linear-to-b from-slate-600/60 from-85% to-slate-600/0 to-85% order-2 rounded-full translate-y-[30px] relative"
+			>
+				<div id="rpm" class="content">
+					<div id="lines" class="content top-1/2 left-1/2 absolute">
+						<div id="line-positioner" class="rotate-[-110deg]">
+							<div id="line"></div>
+						</div>
 
-<body class="bg-white overflow-hidden">
-	<div id="speedometer" class="size-fit flex gap-[6px] right-[15px] bottom-[15px] absolute select-none">
-		<div id="main-part"
-			class="size-[200px] bg-linear-to-b from-slate-600/60 from-85% to-slate-600/0 to-85% order-2 rounded-full translate-y-[30px] relative">
-			<div id="rpm" class="content">
-				<div id="lines" class="content top-1/2 left-1/2 absolute">
-					<div id="line-positioner" class="rotate-[-110deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-96.25deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-96.25deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-82.5deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-82.5deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-68.75deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-68.75deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-55deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-55deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-41.25deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-41.25deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-27.5deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-27.5deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[-13.75deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[-13.75deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[13.75deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[13.75deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[27.5deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[27.5deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[41.25deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[41.25deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[55deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[55deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[68.75deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[68.75deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[82.5deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[82.5deg]">
-						<div id="line"></div>
-					</div>
+						<div id="line-positioner" class="rotate-[96.25deg]">
+							<div id="line"></div>
+						</div>
 
-					<div id="line-positioner" class="rotate-[96.25deg]">
-						<div id="line"></div>
-					</div>
-
-					<div id="line-positioner" class="rotate-[110deg]">
-						<div id="line"></div>
-					</div>
-				</div>
-
-				<div id="numbers" class="content top-1/2 left-1/2 absolute">
-					<div id="number-positioner" class="rotate-[-110deg]">
-						<p id="number" class="rotate-[110deg]">0</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[-82.5deg]">
-						<p id="number" class="rotate-[82.5deg]">1</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[-55deg]">
-						<p id="number" class="rotate-[55deg]">2</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[-27.5deg]">
-						<p id="number" class="rotate-[27.5deg]">3</p>
-					</div>
-
-					<div id="number-positioner">
-						<p id="number" class="rotate-[0deg]">4</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[27.5deg]">
-						<p id="number" class="rotate-[-27.5deg]">5</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[55deg]">
-						<p id="number" class="rotate-[-55deg]">6</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[82.5deg]">
-						<p id="number" class="rotate-[-82.5deg]">7</p>
-					</div>
-
-					<div id="number-positioner" class="rotate-[110deg]">
-						<p id="number" class="rotate-[-110deg]">8</p>
-					</div>
-				</div>
-
-				<div id="arrow-container" class="content top-1/2 left-1/2 absolute">
-					<div id="arrow-positioner"
-						class="h-[107.5px] w-[2px] origin-bottom rotate-[-110deg] -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute transition-transform ease-linear duration-500">
-						<div id="arrow"
-							class="border-t-[17.5px] border-t-red-500 border-l-[8.75px] border-l-transparent border-r-[8.75px] border-r-transparent -translate-x-1/2 top-0 left-1/2 absolute">
+						<div id="line-positioner" class="rotate-[110deg]">
+							<div id="line"></div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div id="speed-gear"
-				class="h-[45px] w-[85px] bg-slate-500 font-mono font-bold text-white grid grid-cols-2 rounded-sm -translate-1/2 top-23/50 left-1/2 absolute">
-				<div id="gear" class="size-[35px] bg-slate-600 rounded-md justify-self-center self-center text-center">
-					<p id="gear-value" class="text-[22px]">-</p>
-				</div>
+					<div id="numbers" class="content top-1/2 left-1/2 absolute">
+						<div id="number-positioner" class="rotate-[-110deg]">
+							<p id="number" class="rotate-[110deg]">0</p>
+						</div>
 
-				<div id="speed"
-					class="text-[16px]/5 grid grid-cols-1 justify-self-center self-center text-center items-center">
-					<p id="speed-value">-</p>
-					<p id="speed-unit">KM/H</p>
-				</div>
-			</div>
+						<div id="number-positioner" class="rotate-[-82.5deg]">
+							<p id="number" class="rotate-[82.5deg]">1</p>
+						</div>
 
-			<div id="turns-lights-indicator-container"
-				class="h-[40px] w-[100px] bg-gray-700 grid grid-cols-3 rounded-md justify-items-center items-center space-between -translate-1/2 top-182/250 left-1/2 absolute">
-				<img id="turn-left-indicator" class="size-[25px]" src="/pictures/turn-left/off.svg" alt="Turn Left" />
+						<div id="number-positioner" class="rotate-[-55deg]">
+							<p id="number" class="rotate-[55deg]">2</p>
+						</div>
 
-				<img id="lights-indicator" class="size-[25px]" src="/pictures/lights/off.svg" alt="Lights" />
+						<div id="number-positioner" class="rotate-[-27.5deg]">
+							<p id="number" class="rotate-[27.5deg]">3</p>
+						</div>
 
-				<img id="turn-right-indicator" class="size-[25px]" src="/pictures/turn-right/off.svg"
-					alt="Turn Right" />
-			</div>
-		</div>
+						<div id="number-positioner">
+							<p id="number" class="rotate-[0deg]">4</p>
+						</div>
 
-		<div id="left-part"
-			class="size-[105px] bg-linear-to-b from-slate-600/60 from-85% to-slate-600/0 to-85% order-1 rounded-full justify-self-end self-end translate-y-[15.75px] relative">
-			<div id="fuel" class="content">
-				<div id="lines" class="content top-1/2 left-1/2 absolute">
-					<div id="line-positioner" class="rotate-[-91.65deg]">
-						<div id="line"></div>
+						<div id="number-positioner" class="rotate-[27.5deg]">
+							<p id="number" class="rotate-[-27.5deg]">5</p>
+						</div>
+
+						<div id="number-positioner" class="rotate-[55deg]">
+							<p id="number" class="rotate-[-55deg]">6</p>
+						</div>
+
+						<div id="number-positioner" class="rotate-[82.5deg]">
+							<p id="number" class="rotate-[-82.5deg]">7</p>
+						</div>
+
+						<div id="number-positioner" class="rotate-[110deg]">
+							<p id="number" class="rotate-[-110deg]">8</p>
+						</div>
 					</div>
 
-					<div id="line-positioner" class="rotate-[-74.99deg]">
-						<div id="line"></div>
-					</div>
-
-					<div id="line-positioner" class="rotate-[-58.33deg]">
-						<div id="line"></div>
-					</div>
-
-					<div id="line-positioner" class="rotate-[-41.67deg]">
-						<div id="line"></div>
-					</div>
-
-					<div id="line-positioner" class="rotate-[-25.01deg]">
-						<div id="line"></div>
-					</div>
-				</div>
-
-				<div id="empty-text" class="content top-1/2 left-1/2 absolute">
-					<div id="text-positioner"
-						class="h-[53px] w-[2px] origin-bottom rotate-[-120deg] -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute">
-						<p id="text"
-							class="font-mono font-bold text-[19px] text-red-500 rotate-[120deg] -translate-x-1/2 top-0 left-1/2 absolute">
-							E
-						</p>
-					</div>
-				</div>
-
-				<div id="full-text" class="content top-1/2 left-1/2 absolute">
-					<div id="text-positioner"
-						class="h-[53px] w-[2px] origin-bottom -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute">
-						<p id="text"
-							class="font-mono font-bold text-[19px] text-white -translate-x-1/2 top-0 left-1/2 absolute">
-							F
-						</p>
-					</div>
-				</div>
-
-				<div id="arrow-container" class="content top-1/2 left-1/2 absolute">
-					<div id="arrow-positioner"
-						class="h-[60px] w-[2px] origin-bottom rotate-[-91.65deg] -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute transition-transform ease-linear duration-500">
-						<div id="arrow"
-							class="border-t-[15px] border-t-red-500 border-l-[7.5px] border-l-transparent border-r-[7.5px] border-r-transparent -translate-x-1/2 top-0 left-1/2 absolute">
+					<div id="arrow-container" class="content top-1/2 left-1/2 absolute">
+						<div
+							id="arrow-positioner"
+							class="h-[107.5px] w-[2px] origin-bottom rotate-[-110deg] -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute transition-transform ease-linear duration-500"
+						>
+							<div
+								id="arrow"
+								class="border-t-[17.5px] border-t-red-500 border-l-[8.75px] border-l-transparent border-r-[8.75px] border-r-transparent -translate-x-1/2 top-0 left-1/2 absolute"
+							></div>
 						</div>
 					</div>
 				</div>
 
-				<div id="fuel-indicator-container"
-					class="size-[51px] bg-gray-700 flex rounded-full justify-center items-center -translate-1/2 top-1/2 left-1/2 absolute">
-					<img id="fuel-indicator" class="size-[25px]" src="/pictures/fuel/off.svg" alt="Fuel" />
+				<div
+					id="speed-gear"
+					class="h-[45px] w-[85px] bg-slate-500 font-mono font-bold text-white grid grid-cols-2 rounded-sm -translate-1/2 top-23/50 left-1/2 absolute"
+				>
+					<div
+						id="gear"
+						class="size-[35px] bg-slate-600 rounded-md justify-self-center self-center text-center"
+					>
+						<p id="gear-value" class="text-[22px]">-</p>
+					</div>
+
+					<div
+						id="speed"
+						class="text-[16px]/5 grid grid-cols-1 justify-self-center self-center text-center items-center"
+					>
+						<p id="speed-value">-</p>
+						<p id="speed-unit">KM/H</p>
+					</div>
+				</div>
+
+				<div
+					id="left-right-headlights-indicator-container"
+					class="h-[40px] w-[100px] bg-gray-700 grid grid-cols-3 rounded-md justify-items-center items-center space-between -translate-1/2 top-182/250 left-1/2 absolute"
+				>
+					<img
+						id="left-indicator"
+						class="size-[25px]"
+						src="/pictures/left/off.svg"
+						alt="Turn Left"
+					/>
+
+					<img
+						id="headlights-indicator"
+						class="size-[25px]"
+						src="/pictures/headlights/off.svg"
+						alt="Headlights"
+					/>
+
+					<img
+						id="right-indicator"
+						class="size-[25px]"
+						src="/pictures/right/off.svg"
+						alt="Turn Right"
+					/>
+				</div>
+			</div>
+
+			<div
+				id="left-part"
+				class="size-[105px] bg-linear-to-b from-slate-600/60 from-85% to-slate-600/0 to-85% order-1 rounded-full justify-self-end self-end translate-y-[15.75px] relative"
+			>
+				<div id="fuel" class="content">
+					<div id="lines" class="content top-1/2 left-1/2 absolute">
+						<div id="line-positioner" class="rotate-[-91.65deg]">
+							<div id="line"></div>
+						</div>
+
+						<div id="line-positioner" class="rotate-[-74.99deg]">
+							<div id="line"></div>
+						</div>
+
+						<div id="line-positioner" class="rotate-[-58.33deg]">
+							<div id="line"></div>
+						</div>
+
+						<div id="line-positioner" class="rotate-[-41.67deg]">
+							<div id="line"></div>
+						</div>
+
+						<div id="line-positioner" class="rotate-[-25.01deg]">
+							<div id="line"></div>
+						</div>
+					</div>
+
+					<div id="empty-text" class="content top-1/2 left-1/2 absolute">
+						<div
+							id="text-positioner"
+							class="h-[53px] w-[2px] origin-bottom rotate-[-120deg] -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute"
+						>
+							<p
+								id="text"
+								class="font-mono font-bold text-[19px] text-red-500 rotate-[120deg] -translate-x-1/2 top-0 left-1/2 absolute"
+							>
+								E
+							</p>
+						</div>
+					</div>
+
+					<div id="full-text" class="content top-1/2 left-1/2 absolute">
+						<div
+							id="text-positioner"
+							class="h-[53px] w-[2px] origin-bottom -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute"
+						>
+							<p
+								id="text"
+								class="font-mono font-bold text-[19px] text-white -translate-x-1/2 top-0 left-1/2 absolute"
+							>
+								F
+							</p>
+						</div>
+					</div>
+
+					<div id="arrow-container" class="content top-1/2 left-1/2 absolute">
+						<div
+							id="arrow-positioner"
+							class="h-[60px] w-[2px] origin-bottom rotate-[-91.65deg] -translate-x-1/2 -translate-y-full top-1/2 left-1/2 absolute transition-transform ease-linear duration-500"
+						>
+							<div
+								id="arrow"
+								class="border-t-[15px] border-t-red-500 border-l-[7.5px] border-l-transparent border-r-[7.5px] border-r-transparent -translate-x-1/2 top-0 left-1/2 absolute"
+							></div>
+						</div>
+					</div>
+
+					<div
+						id="fuel-indicator-container"
+						class="size-[51px] bg-gray-700 flex rounded-full justify-center items-center -translate-1/2 top-1/2 left-1/2 absolute"
+					>
+						<img
+							id="fuel-indicator"
+							class="size-[25px]"
+							src="/pictures/fuel/off.svg"
+							alt="Fuel"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<div
+				id="right-part"
+				class="size-[105px] bg-linear-to-b from-slate-600/60 from-85% to-slate-600/0 to-85% order-3 rounded-full justify-self-end self-end translate-y-[15.75px] relative"
+			>
+				<div
+					id="health-container"
+					class="size-[43px] bg-gray-600 flex border-2 border-gray-700 rounded-full justify-center items-center -translate-1/2 top-1/4 left-1/2 absolute overflow-hidden"
+				>
+					<div
+						id="health-color"
+						class="size-[43px] bg-red-500 top-full absolute -z-1"
+					></div>
+					<p id="health-percentage" class="font-bold text-[15px] text-gray-300">
+						-
+					</p>
+				</div>
+
+				<div
+					id="seatbelts-indicator-container"
+					class="size-[43px] bg-gray-700 flex rounded-full justify-center items-center -translate-1/2 top-243/400 left-109/400 absolute"
+				>
+					<img
+						id="seatbelts-indicator"
+						class="size-[25px]"
+						src="/pictures/seatbelts/off.svg"
+						alt="Seatbelts"
+					/>
+				</div>
+
+				<div
+					id="engine-indicator-container"
+					class="size-[43px] bg-gray-700 flex rounded-full justify-center items-center -translate-1/2 top-243/400 left-291/400 absolute"
+				>
+					<img
+						id="engine-indicator"
+						class="size-[25px]"
+						src="/pictures/engine/off.svg"
+						alt="Engine"
+					/>
 				</div>
 			</div>
 		</div>
 
-		<div id="right-part"
-			class="size-[105px] bg-linear-to-b from-slate-600/60 from-85% to-slate-600/0 to-85% order-3 rounded-full justify-self-end self-end translate-y-[15.75px] relative">
-			<div id="health-container"
-				class="size-[43px] bg-gray-600 flex border-2 border-gray-700 rounded-full justify-center items-center -translate-1/2 top-1/4 left-1/2 absolute overflow-hidden">
-				<div id="health-color" class="size-[43px] bg-red-500 top-full absolute -z-1"></div>
-				<p id="health-percentage" class="font-bold text-[15px] text-gray-300">
-					-
-				</p>
+		<script src="/script.js"></script>
+
+		<div
+			id="settings"
+			class="size-fit bg-white font-bold text-[17px] text-black items-center border-2 border-blue-500 rounded-md p-[15px] space-y-[5px] top-[15px] right-[15px] absolute select-none"
+		>
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Engine :</p>
+
+				<input
+					type="checkbox"
+					class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
+					onclick="this.toggleAttribute('checked'); setEngine(this.checked);"
+				/>
 			</div>
 
-			<div id="seatbelt-indicator-container"
-				class="size-[43px] bg-gray-700 flex rounded-full justify-center items-center -translate-1/2 top-243/400 left-109/400 absolute">
-				<img id="seatbelt-indicator" class="size-[25px]" src="/pictures/seatbelt/off.svg" alt="Fuel" />
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Gear :</p>
+
+				<select
+					id="gear"
+					class="h-fit w-[40px] font-normal text-center border border-blue-500 rounded-sm appearance-none outline-none"
+					onchange="setGear(this.value);"
+				>
+					<option disabled selected></option>
+					<option value="N">N</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="R">R</option>
+				</select>
 			</div>
 
-			<div id="engine-indicator-container"
-				class="size-[43px] bg-gray-700 flex rounded-full justify-center items-center -translate-1/2 top-243/400 left-291/400 absolute">
-				<img id="engine-indicator" class="size-[25px]" src="/pictures/engine/off.svg" alt="Fuel" />
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Speed (m/s):</p>
+
+				<input
+					type="number"
+					min="0"
+					max="61"
+					step="1"
+					value="0"
+					class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
+					onchange="setSpeed(this.value);"
+					onkeydown="return false;"
+				/>
 			</div>
-		</div>
-	</div>
 
-	<script src="/script.js"></script>
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">RPM :</p>
 
-	<div id="settings"
-		class="size-fit bg-white font-bold text-[17px] text-black items-center border-2 border-blue-500 rounded-md p-[15px] space-y-[5px] top-[15px] right-[15px] absolute select-none">
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Engine : </p>
-
-			<input type="checkbox"
-				class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
-				onclick="this.toggleAttribute('checked'); setEngine(this.checked);" />
-		</div>
-
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Gear : </p>
-
-			<select id="gear"
-				class="h-fit w-[40px] font-normal text-center border border-blue-500 rounded-sm appearance-none outline-none"
-				onchange="setGear(this.value);">
-				<option disabled selected> </option>
-				<option value="N">N</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="R">R</option>
-			</select>
-		</div>
-
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Speed : </p>
-
-			<input type="number" min="0" max="220" step="10" value="0"
-				class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
-				onchange="setSpeed(this.value);"
-				onkeydown="return false;"
+				<input
+					type="number"
+					min="0"
+					max="8000"
+					step="100"
+					value="0"
+					class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
+					onchange="setRPM(this.value);"
+					onkeydown="return false;"
 				/>
-		</div>
+			</div>
 
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> RPM : </p>
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Fuel :</p>
 
-			<input type="number" min="0" max="8000" step="100" value="0"
-				class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
-				onchange="setRPM(this.value);"
-				onkeydown="return false;"
+				<input
+					type="number"
+					min="0"
+					max="1"
+					step="0.01"
+					value="0"
+					class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
+					onchange="setFuel(this.value);"
+					onkeydown="return false;"
 				/>
-		</div>
+			</div>
 
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Fuel : </p>
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Left Indicator :</p>
 
-			<input type="number" min="0.01" max="1" step="0.01" value="0"
-				class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
-				onchange="setFuel(this.value);"
-				onkeydown="return false;"
+				<input
+					type="checkbox"
+					class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
+					onclick="this.toggleAttribute('checked'); setLeftIndicator(this.checked);"
 				/>
-		</div>
+			</div>
 
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Turn Left : </p>
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Right Indicator :</p>
 
-			<input type="checkbox"
-				class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
-				onclick="this.toggleAttribute('checked'); setTurnLeft(this.checked);" />
-		</div>
-
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Turn Right : </p>
-
-			<input type="checkbox"
-				class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
-				onclick="this.toggleAttribute('checked'); setTurnRight(this.checked);" />
-		</div>
-
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Lights : </p>
-
-			<select id="lights"
-				class="h-fit w-[50px] font-normal text-center border border-blue-500 rounded-sm appearance-none outline-none"
-				onchange="setLights(parseInt(this.value));">
-				<option disabled selected> </option>
-				<option value="0">Off</option>
-				<option value="1">On</option>
-				<option value="2">High</option>
-			</select>
-		</div>
-
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Seatbelt : </p>
-
-			<input type="checkbox"
-				class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
-				onclick="this.toggleAttribute('checked'); setSeatbelt(this.checked);" />
-		</div>
-
-		<div class="size-fit grid grid-cols-2 space-x-[20px] items-center">
-			<p class="h-fit"> Health : </p>
-
-			<input type="number" min="0.01" max="1" step="0.01" value="0"
-				class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
-				onchange="setHealth(this.value);"
-				onkeydown="return false;"
+				<input
+					type="checkbox"
+					class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
+					onclick="this.toggleAttribute('checked'); setRightIndicator(this.checked);"
 				/>
-		</div>
+			</div>
 
-		<style>
-			#settings {
-				input[type="checkbox"]::after {
-					content: "";
-					height: 16px;
-					width: 16px;
-					background-color: #2b7fff;
-					border-radius: 100%;
-					transform: translateY(-50%);
-					top: 50%;
-					left: 1px;
-					position: absolute;
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Headlights :</p>
+
+				<select
+					class="h-fit w-[50px] font-normal text-center border border-blue-500 rounded-sm appearance-none outline-none"
+					onchange="setHeadlights(parseInt(this.value));"
+				>
+					<option disabled selected></option>
+					<option value="0">Off</option>
+					<option value="1">On</option>
+					<option value="2">High</option>
+				</select>
+			</div>
+
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Seatbelts :</p>
+
+				<input
+					type="checkbox"
+					class="h-[20px] w-[40px] bg-slate-200 border border-blue-500 rounded-full appearance-none relative"
+					onclick="this.toggleAttribute('checked'); setSeatbelts(this.checked);"
+				/>
+			</div>
+
+			<div class="size-fit flex space-x-[20px] items-center">
+				<p class="h-fit">Health :</p>
+
+				<input
+					type="number"
+					min="0"
+					max="1"
+					step="0.01"
+					value="0"
+					class="size-fit font-normal text-center border border-blue-500 rounded-sm caret-transparent outline-none"
+					onchange="setHealth(this.value);"
+					onkeydown="return false;"
+				/>
+			</div>
+
+			<style>
+				#settings {
+					input[type="checkbox"]::after {
+						content: "";
+						height: 16px;
+						width: 16px;
+						background-color: #2b7fff;
+						border-radius: 100%;
+						transform: translateY(-50%);
+						top: 50%;
+						left: 1px;
+						position: absolute;
+					}
+
+					input[type="checkbox"][checked]::after {
+						left: calc(100% - 17px);
+					}
+
+					input[type="radio"][checked] {
+						background-color: #2b7fff;
+					}
 				}
+			</style>
 
-				input[type="checkbox"][checked]::after {
-					left: calc(100% - 17px);
-				}
-
-				input[type="radio"][checked] {
-					background-color: #2b7fff;
-				}
-			}
-		</style>
-
-		<script>
-
-		</script>
-	</div>
-</body>
-
+			<script></script>
+		</div>
+	</body>
 </html>
