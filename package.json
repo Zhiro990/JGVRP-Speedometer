@@ -2,10 +2,10 @@
 	"name": "jgvrp-speedometer",
 	"version": "1.0.0",
 	"scripts": {
+		"build": "npm run build:css && npm run build:preview:css",
 		"build:css": "npx tailwindcss -i ./public/style.raw.css -o ./public/style.css",
-		"build:preview:css": "npx tailwindcss -i ./public/style.preview.raw.css -o ./public/style.preview.css",
-		"dev": "concurrently \"npm:build:css -- --watch\" \"http-server public\"",
-		"dev:preview": "concurrently \"npm:build:preview:css -- --watch\" \"http-server public\"",
+		"build:preview:css": "npx tailwindcss -i ./public/preview/style.raw.css -o ./public/preview/style.css",
+		"dev": "concurrently \"npm:build:css -- --watch\" \"npm:build:preview:css -- --watch\" \"http-server public\"",
 		"lint": "npx prettier --check \"{*,public/**/*}.{js,json,html,css}\"",
 		"format": "npx prettier --write \"{*,public/**/*}.{js,json,html,css}\""
 	},
